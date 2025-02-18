@@ -1,8 +1,19 @@
-import { Button, Container, Flex, HStack, Text } from "@chakra-ui/react";
+import {
+  Button,
+  Container,
+  Flex,
+  HStack,
+  Text,
+  useColorMode,
+} from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { AiOutlinePlusSquare } from "react-icons/ai";
+import { IoMoon } from "react-icons/io5";
+import { LuSun } from "react-icons/lu";
 
 const Navbar = () => {
+  const { colorMode, setColorMode } = useColorMode();
+
   return (
     <Container maxW={"1140px"} px={4}>
       <Flex
@@ -31,6 +42,9 @@ const Navbar = () => {
               <AiOutlinePlusSquare fontSize={20} />
             </Button>
           </Link>
+          <Button onclick={toggleColorMode}>
+            {colorMode === "light" ? <IoMoon /> : <LuSun size="20" />};
+          </Button>
         </HStack>
       </Flex>
     </Container>
